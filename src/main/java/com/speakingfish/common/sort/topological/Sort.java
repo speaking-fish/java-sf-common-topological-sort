@@ -17,8 +17,9 @@ public class Sort {
 	 */
 	public static <T, C extends List<T>> C inplaceSort(C container, BiFunction<T, T, TopologicalResult> comparator) {
 		final int size = container.size();
-		boolean changed = false;
+		boolean changed;
 		do {
+	        changed = false;
 			for(int i = 0; i < size - 1; ++i) {
 				final T e = container.get(i);
 				for(int j = i + 1; j < size; ++j) {
@@ -33,7 +34,7 @@ public class Sort {
 					}
 				}
 			}
-		} while(!changed);
+		} while(changed);
 		return container;
 	}
 

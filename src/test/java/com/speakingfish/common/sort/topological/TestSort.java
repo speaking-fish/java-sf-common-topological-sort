@@ -14,9 +14,10 @@ public class TestSort {
 	
 	public static final BiFunction<Integer, Integer, TopologicalResult> TOPOLOGICAL_COMPARATOR_INTEGER
 	= (a, b) -> {
-		if(a < b) return Before;
-		if(b < a) return After ;
-		return Same;
+        if(a == b) return Same;
+		if(a + 1 == b) return Before;
+		if(b + 1 == a) return After ;
+		return Unknown;
 	}; 
 	
 	@Test
